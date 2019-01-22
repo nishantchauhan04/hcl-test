@@ -47,8 +47,8 @@ podTemplate(
 		stage ('Docker') {
             container ('docker') {
 			    withDockerRegistry([url: "http://${params.RegistryURL}"]) {
-					sh "docker pull dattasumit/fraudui-jetty:latest"
-					sh "docker tag dattasumit/fraudui-jetty:latest ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER}"
+					sh "docker pull java/openjdk-8-jre-alpine"
+					sh "docker tag java/openjdk-8-jre-alpine ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER}"
 					sh "docker push ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER} "
 				}
 			    
