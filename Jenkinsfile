@@ -47,8 +47,8 @@ podTemplate(
 		stage ('Docker') {
             container ('docker') {
 			    withDockerRegistry([credentialsId: 'dockerhub']) {
-					sh "docker pull java/openjdk-8-jre-alpine"
-					sh "docker tag java/openjdk-8-jre-alpine ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER}"
+					sh "docker pull nishantchauhan/javaalpine"
+					sh "docker tag nishantchauhan/javaalpine ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER}"
 					sh "docker push ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER} "
 				}
 			    
