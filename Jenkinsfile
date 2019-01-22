@@ -1,5 +1,6 @@
 parameters {
-    string(defaultValue: 'https://registry.hub.docker.com', description: '', name: 'RegistryURL')
+        string(defaultValue: 'https://registry.hub.docker.com', description: '', name: 'RegistryURL')
+	string(defaultValue: '/', description: '', name: 'tagsep')
 	string(defaultValue: 'Test', description: '', name: 'AppName')
 	string(defaultValue: '80', description: '', name: 'AppPort')
 	string(defaultValue: 'micro-system', description: '', name: 'NameSpace')
@@ -48,7 +49,7 @@ podTemplate(
             container ('docker') {
 			    withDockerRegistry([credentialsId: 'dockerhub']) {
 					sh "docker pull nishantchauhan/javaalpine"
-					sh "docker tag nishantchauhan/javaalpine ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER}"
+					sh "docker tag nishantchauhan/javaalpine ${params.RegistryURL}${params.tagsep}${params.AppName}:${env.BUILD_NUMBER}"
 					sh "docker push ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER} "
 				}
 			    
