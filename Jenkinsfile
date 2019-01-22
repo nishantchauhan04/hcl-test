@@ -40,7 +40,7 @@ podTemplate(
 				doGenerateSubmoduleConfigurations: false, 
 				extensions: [[$class: 'CleanCheckout'],[$class: 'RelativeTargetDirectory', relativeTargetDir: 'install']], 
 				submoduleCfg: [], 
-				userRemoteConfigs: [[credentialsId: "${params.HelmCredId}", url: 'https://bitbucket.org/hclswz/devops-mgmt.git']]
+				userRemoteConfigs: [[credentialsId: "${params.HelmCredId}", url: 'https://github.com/nishantchauhan04/java.git']]
 			])
 			sh 'ls -ltr'
         }
