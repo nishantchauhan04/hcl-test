@@ -1,5 +1,5 @@
 parameters {
-    string(defaultValue: 'https://cloud.docker.com/repository/registry-1.docker.io/nishantchauhan/hcl-test', description: '', name: 'RegistryURL')
+    string(defaultValue: 'https://registry.hub.docker.com', description: '', name: 'RegistryURL')
 	string(defaultValue: 'Test', description: '', name: 'AppName')
 	string(defaultValue: '80', description: '', name: 'AppPort')
 	string(defaultValue: 'micro-system', description: '', name: 'NameSpace')
