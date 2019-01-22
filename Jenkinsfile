@@ -58,6 +58,7 @@ podTemplate(
         stage ('Deploy') {
             container ('helm') {
                 sh "helm init --client-only --skip-refresh"
+		sh "helm ls"    
                 sh "helm upgrade --install --namespace micro-system --wait --set service.identifier=abcd,service.port=80,service.name=Test,image.repository=nishantchauhan/javaalpine,image.tag=${env.BUILD_NUMBER} Test install/base/install/helm -f Values.yaml"
 			}
         }
