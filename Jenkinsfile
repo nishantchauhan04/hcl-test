@@ -49,8 +49,8 @@ podTemplate(
             container ('docker') {
 			    withDockerRegistry([credentialsId: 'dockerhub']) {
 					sh "docker pull nishantchauhan/javaalpine"
-					sh "docker tag nishantchauhan/javaalpine ${params.RegistryURL}${params.tagsep}${params.AppName}:${env.BUILD_NUMBER}"
-					sh "docker push ${params.RegistryURL}${params.AppName}:${env.BUILD_NUMBER} "
+					sh "docker tag nishantchauhan/javaalpine nishantchauhan/javaalpine:${env.BUILD_NUMBER}"
+					sh "docker push nishantchauhan/javaalpine:${env.BUILD_NUMBER} "
 				}
 			    
             }
